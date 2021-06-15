@@ -1,0 +1,17 @@
+
+AddHandler php-stable .php
+
+# BEGIN (mt) controlled settings
+<IfModule !mod_fcgid.c>
+  AddHandler php-stable .php
+</IfModule>
+<IfModule mod_fcgid.c>
+  AddHandler fcgid-script .php
+  <Files *.php>
+    Options +ExecCGI
+  </Files>
+</IfModule>
+<IfModule pagespeed_module>
+  ModPagespeed on
+</IfModule>
+# END (mt) controlled settings
